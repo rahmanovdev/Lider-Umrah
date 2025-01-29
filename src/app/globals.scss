@@ -1,12 +1,61 @@
+:root {
+  /* Цветовая палитра */
+  --color-primary: #007acc; /* Основной цвет */
+  --color-text: #333; /* Цвет текста */
+  --color-background: #ffffff; /* Цвет фона */
+  --color-border: #ccc; /* Цвет границ */
+
+  /* Шрифты */
+  --font-family: "Inter", sans-serif;
+  --font-size-base: 16px; /* Базовый размер шрифта */
+  --line-height: 1.6; /* Межстрочное расстояние */
+
+  /* Отступы */
+  --container-max-width: 1240px;
+  --container-padding: 20px;
+}
+
+/* ==========================
+ Глобальные стили
+========================== */
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  font-size: var(--font-size-base);
+  scrollbar-width: none;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 1rem;
+  line-height: var(--line-height);
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .container {
-  max-width: 1240px;
+  max-width: var(--container-max-width);
   width: 100%;
-  padding: 0 20px;
   margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 7px;
+  }
 }

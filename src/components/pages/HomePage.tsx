@@ -10,12 +10,14 @@ import InformationSection from "./home/InformationSection/InformationSection";
 const HomePage = () => {
   return (
     <>
-      <HeroSection />
-      <AboutSection />
-      <TariffsSection />
-      <StepsHajjSection />
-      <QuestionsSection />
-      <InformationSection />
+      <div className={scss.HomePage}>
+        <HeroSection />
+        <AboutSection />
+        <TariffsSection />
+        <StepsHajjSection />
+        <QuestionsSection />
+        <InformationSection />
+      </div>
     </>
   );
 };

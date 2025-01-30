@@ -1,0 +1,15 @@
+.Main {
+    .content {
+        h1 {
+            color: rgb(24, 74, 46);
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        .cards {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+}

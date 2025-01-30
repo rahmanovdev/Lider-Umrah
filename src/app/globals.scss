@@ -31,18 +31,20 @@ html {
 }
 
 body {
-  background-image: url("/assets/images/Bg_all.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 100vh;
-
   font-family: var(--font-family);
   font-size: 1rem;
   line-height: var(--line-height);
   color: var(--color-text);
   background-color: var(--color-background);
+}
+
+.background-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
 li {

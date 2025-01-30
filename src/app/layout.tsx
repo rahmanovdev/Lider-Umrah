@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.scss";
 import LayoutClient from "./layout.client";
 import { Inter, Permanent_Marker, Montserrat } from "next/font/google";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,6 +27,24 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${interSans.variable}  ${montserrat.variable}`}>
+        <div className="background-wrapper">
+          <Image
+            src="/assets/images/Bg_all.png"
+            alt="Site background"
+            priority
+            fill
+            quality={100}
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..." // сиздин сүрөттүн blur версиясы
+            sizes="100vw"
+            style={{
+              objectFit: "cover",
+              objectPosition: "center",
+              zIndex: -1,
+            }}
+          />
+        </div>
+
         <LayoutClient>{children}</LayoutClient>
       </body>
     </html>

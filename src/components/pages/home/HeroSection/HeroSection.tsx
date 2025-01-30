@@ -75,7 +75,7 @@ const HeroSection: React.FC = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-    }, 5000);
+    }, 4000);
 
     return () => clearInterval(timer);
   }, []);

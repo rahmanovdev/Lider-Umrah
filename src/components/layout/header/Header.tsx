@@ -3,6 +3,7 @@ import scss from "./Header.module.scss";
 import logo from "../../../../public/assets/images/logo.svg";
 import Image from "next/image";
 import { IoCall } from "react-icons/io5";
+import Language from "../../../../public/assets/images/Global.svg";
 
 const Header = () => {
   return (
@@ -54,7 +55,14 @@ const Header = () => {
             </div>
 
             <div className={scss.language}>
-              <div className={scss.line_second}></div>
+              <Image
+                src={Language}
+                alt="Language Lider Umarh"
+                width={20}
+                height={20}
+                quality={70}
+                priority
+              />
               <li>
                 <a href="#">Русский</a>
               </li>

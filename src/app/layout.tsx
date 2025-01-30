@@ -27,13 +27,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${interSans.variable}  ${montserrat.variable}`}>
-        <div className="background-wrapper">
+        {/* <div className="background-wrapper">
           <Image
             src="/assets/images/Bg_all.png"
             alt="Site background"
             priority
             fill
-            quality={100}
+            quality={90}
             placeholder="blur"
             blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRg..." // сиздин сүрөттүн blur версиясы
             sizes="100vw"
@@ -43,7 +43,7 @@ export default function RootLayout({
               zIndex: -1,
             }}
           />
-        </div>
+        </div> */}
 
         <LayoutClient>{children}</LayoutClient>
       </body>

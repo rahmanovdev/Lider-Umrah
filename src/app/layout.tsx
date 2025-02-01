@@ -29,7 +29,7 @@ export default function RootLayout({
       <body className={`${interSans.variable}  ${montserrat.variable}`}>
         {/* <div className="background-wrapper">
           <Image
-            src="/assets/images/Bg_all.png"
+            src="/assets/images/bg_liderUmrah.png"
             alt="Site background"
             priority
             fill

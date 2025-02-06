@@ -1,68 +1,77 @@
-import React from "react";
-import scss from "./StepsHajjSection.module.scss"
-import Image from "next/image";
-import img1 from "../../../../../public/assets/stepsOfHadj_img/hadj-stage1.png";
-import img2 from "../../../../../public/assets/stepsOfHadj_img/hadj-stage2.png";
-import img3 from "../../../../../public/assets/stepsOfHadj_img/hadj-stage3.png";
-import img4 from "../../../../../public/assets/stepsOfHadj_img/hadj-stage4.png";
-import img5 from "../../../../../public/assets/stepsOfHadj_img/hadj-stage5.png";
+'use client';
+import * as React from 'react';
+import scss from './StepsHajjSection.module.scss';
+import Image from 'next/image';
+import img1 from '../../../../../public/assets/stepsOfHadj_img/hadj-stage1.png';
+import img2 from '../../../../../public/assets/stepsOfHadj_img/hadj-stage2.png';
+import img3 from '../../../../../public/assets/stepsOfHadj_img/hadj-stage3.png';
+import img4 from '../../../../../public/assets/stepsOfHadj_img/hadj-stage4.png';
+import img5 from '../../../../../public/assets/stepsOfHadj_img/hadj-stage5.png';
 
-const StepsHajjSection = () => {
-  return (
-    <section className={scss.Main}>
-      <div className={scss.pre_main}>
-      <div className="container">
-        <div className={scss.content}>
-          <h1>Столпы хаджа и обязательные действия</h1>
-
-          <div className={scss.block_content}>
-
-            <div className={scss.block}>
-              <h2>Хадж: порядок <br /> исполнения</h2>
-
-              <Image src={img1} alt="" width={700} height={300}/>
-
-              <p>Под Ихрамом <br /> подразумевается первое <br /> действие...</p>
-            </div>
-
-            <div className={scss.block2}>
-              <h2>Ихрам</h2>
-
-              <Image src={img2} alt="" width={700} height={300}/>
-
-              <p>Под Ихрамом <br /> подразумевается первое <br /> действие...</p>
-            </div>
-
-            <div className={scss.block3}>
-              <h2>Арафа</h2>
-
-              <Image src={img3} alt="" width={700} height={300}/>
-
-              <p>Одним из обязательных <br /> столпов хаджа...</p>
-            </div>
-
-            <div className={scss.block4}>
-              <h2>Таваф</h2>
-
-              <Image src={img4} alt="" width={700} height={300}/>
-
-              <p>Что касается такого <br /> ритуала, как Таваф...</p>
-            </div>
-
-            <div className={scss.block5}>
-              <h2>Са’й</h2>
-
-              <Image src={img5} alt="" width={700} height={300}/>
-
-              <p>Что касается такого <br /> ритуала, как Таваф...</p>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      </div>
-    </section>
-  );
+const colors: Record<number, string> = {
+	1: 'rgb(251, 218, 205)',
+	2: 'rgb(113, 255, 175)',
+	3: 'rgb(183, 241, 238)',
+	4: 'rgb(251, 225, 188)',
+	5: 'rgb(193, 231, 249)'
 };
 
-export default StepsHajjSection; 
+const steps = [
+	{ title: 'Хадж: порядок исполнения', img: img1 },
+	{ title: 'Ихрам', img: img2 },
+	{ title: 'Арафа', img: img3 },
+	{ title: 'Таваф', img: img4 },
+	{ title: 'Са’й', img: img5 }
+];
+
+const StepsHajjSection = () => {
+	const [currentStep, setCurrentStep] = React.useState(1);
+
+	React.useEffect(() => {
+		const interval = setInterval(() => {
+			setCurrentStep(prevStep => (prevStep < 5 ? prevStep + 1 : 1));
+		}, 2000);
+
+		return () => clearInterval(interval);
+	}, []);
+
+	return (
+		<section className={scss.Main}>
+			<div
+				className={scss['bg']}
+				style={{
+					background: colors[currentStep]
+				}}
+			></div>
+			<div className={scss.pre_main}>
+				<div className='container'>
+					<div className={scss.content}>
+						<h1>Столпы хаджа и обязательные действия</h1>
+						<div className={scss.block_content}>
+							{steps.map((step, index) => {
+								const isActive = currentStep === index + 1;
+								return (
+									<div
+										id={`step-${index}`}
+										key={index}
+										className={`${scss.block} ${
+											isActive ? scss.active : scss.inactive
+										}`}
+										style={{
+											background: colors[index + 1]
+										}}
+									>
+										<h2>{step.title}</h2>
+										<Image src={step.img} alt='' width={700} height={300} />
+									</div>
+								);
+							})}
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	);
+};
+
+export default StepsHajjSection;

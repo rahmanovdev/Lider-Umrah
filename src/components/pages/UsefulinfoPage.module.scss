@@ -1,0 +1,155 @@
+.pageContainer {
+	gap: 4rem;
+	min-height: 100vh;
+	max-width: var(--container-max-width);
+	padding: var(--container-padding);
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	.title {
+		font-size: 40px;
+		font-weight: bold;
+		line-height: auto;
+		margin: 0 auto;
+		margin-top: 101px;
+		margin-bottom: 63px;
+	}
+}
+
+.content {
+	display: flex;
+	align-items: flex-start;
+	gap: 50px;
+}
+
+.img-card {
+	min-width: 350px;
+	height: 350px;
+	background-color: #8e7777;
+	border-radius: 25px;
+}
+
+.wrapper {
+	width: 100%;
+	font-family: sans-serif;
+	overflow: hidden;
+}
+
+.timelineContainer {
+	position: relative;
+	max-width: 80rem;
+	margin: 0 auto;
+	padding-bottom: 5rem;
+}
+
+.timelineEntry {
+	display: flex;
+	justify-content: flex-start;
+	&:not(.isFirst) {
+		padding-top: 10rem;
+	}
+}
+
+.timelineMark {
+	position: sticky;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	top: 0;
+	align-self: flex-start;
+	max-width: 20rem;
+	z-index: 40;
+	margin-top: 10px;
+}
+
+.markCircleOuter {
+	height: 2.5rem;
+	width: 2.5rem;
+	position: absolute;
+	left: 0.75rem;
+	background-color: var(--bg-primary);
+	border-radius: 9999px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&.lined {
+		background-color: var(--circle-bg);
+	}
+}
+
+.markCircleInner {
+	height: 1rem;
+	width: 1rem;
+	border-radius: 9999px;
+	background-color: var(--circle-bg);
+	border: 1px solid var(--circle-border);
+	padding: 0.5rem;
+	&.lined {
+		background-color: var(--bg-primary);
+	}
+}
+
+.markTitleMobile {
+	display: block;
+	font-size: 2rem;
+	line-height: auto;
+	margin-bottom: 1.2rem;
+	text-align: left;
+	font-weight: 600;
+	color: #000;
+}
+
+.contentWrapper {
+	position: relative;
+	padding-left: 5rem;
+	padding-right: 1rem;
+	width: 100%;
+}
+
+.timelineLine {
+	position: absolute;
+	left: 2rem;
+	top: -10em;
+	overflow: hidden;
+	width: 4px;
+	background: linear-gradient(
+		to bottom,
+		transparent 0%,
+		var(--line-color) 10%,
+		var(--line-color) 90%,
+		transparent 100%
+	);
+	mask-image: linear-gradient(
+		to bottom,
+		transparent 0%,
+		black 10%,
+		black 90%,
+		transparent 100%
+	);
+}
+
+.timelineProgress {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	width: 4px;
+	background: linear-gradient(
+		to top,
+		var(--progress-from) 0%,
+		var(--progress-via) 10%,
+		transparent 100%
+	);
+	border-radius: 9999px;
+}
+
+:root {
+	--bg-primary: #ffffff;
+	--text-primary: #000000;
+	--text-secondary: #404040;
+	--circle-bg: #e5e5e5;
+	--circle-border: #d4d4d4;
+	--line-color: #e5e5e5;
+	--progress-from: #5cc489;
+	--progress-via: #13b359;
+}

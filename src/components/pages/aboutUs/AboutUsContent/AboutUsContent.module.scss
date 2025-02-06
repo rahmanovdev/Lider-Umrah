@@ -1,0 +1,20 @@
+.AboutUsContent {
+  .head_about {
+    background-image: url("../../../../../public/assets/aboutUsImages/Pesona-Arsitektur-Islam-di-Mekkah-dan-Madinah.jpg");
+    height: 240px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .content {
+    margin: 80px 0;
+
+    .about_content {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+  }
+}
+

@@ -1,28 +1,11 @@
 'use client';
+import { useTimeLine } from '@/hooks/use-time-line';
 import scss from './UsefulinfoPage.module.scss';
-import { useScroll, useTransform, motion } from 'framer-motion';
-import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
+import React from 'react';
 
 const UsefulinfoPage = () => {
-	const ref = useRef<HTMLDivElement>(null);
-	const containerRef = useRef<HTMLDivElement>(null);
-	const [height, setHeight] = useState(0);
-
-	useEffect(() => {
-		if (ref.current) {
-			const rect = ref.current.getBoundingClientRect();
-			setHeight(rect.height);
-		}
-	}, [ref]);
-
-	const { scrollYProgress } = useScroll({
-		target: containerRef,
-		offset: ['start 15%', 'end 100%']
-	});
-
-	const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
-	const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
-
+	const { containerRef, height, heightTransform, ref } = useTimeLine();
 	return (
 		<div className={scss.pageContainer}>
 			<h4 className={scss.title}>Полезные информации</h4>
@@ -35,12 +18,12 @@ const UsefulinfoPage = () => {
 						>
 							<div className={scss.timelineMark}>
 								<div className={`${scss.markCircleOuter} ${''}`}>
-									<div className={`${scss.markCircleInner} ${''}`} />
+									{index + 1}
 								</div>
 							</div>
 
 							<div className={scss.contentWrapper}>
-								<h3 className={scss.markTitleMobile}>{item.title}</h3>
+								<h3 className={scss.markTitle}>{item.title}</h3>
 								{item.content}
 							</div>
 						</div>
@@ -53,8 +36,7 @@ const UsefulinfoPage = () => {
 					>
 						<motion.div
 							style={{
-								height: heightTransform,
-								opacity: opacityTransform
+								height: heightTransform
 							}}
 							className={scss.timelineProgress}
 						/>

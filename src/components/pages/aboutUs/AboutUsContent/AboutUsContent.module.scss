@@ -1,0 +1,19 @@
+.AboutUsContent {
+  .head_about {
+    background-image: url("../../../../../public/assets/images/kaaba-в-мекке-56942224.webp");
+    height: 240px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .content {
+    margin: 90px 0;
+
+    .about_content {
+      display: flex;
+      align-items: center;
+      gap: 38px;
+    }
+  }
+}

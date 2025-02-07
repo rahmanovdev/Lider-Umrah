@@ -40,7 +40,6 @@ const StepsHajjSection = () => {
 			<div
 				className={scss['bg']}
 				style={{
-					background: colors[currentStep]
 				}}
 			></div>
 			<div className={scss.pre_main}>

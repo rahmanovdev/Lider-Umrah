@@ -1,23 +1,26 @@
-import React from "react";
-import scss from "./TariffsSection.module.scss"
-import EkonomCard from "@/components/ui/cards/tours_cards/ekonom_card/EkonomCard";
-import ComfordCard from "@/components/ui/cards/tours_cards/comfort_card/ComfordCard";
-import ComfortPlusCard from "@/components/ui/cards/tours_cards/comfortPlus_card/ComfortPlusCard";
+import React from 'react';
+import scss from './TariffsSection.module.scss';
+import TrafficCard from '@/components/ui/cards/traffic-card/TrafficCard';
 
 const TariffsSection = () => {
-  return <section className={scss.Main}>
-    <div className="container">
-      <div className={scss.content}>
-        <h1>Тарифы</h1>
+	return (
+		<section className={scss.Main}>
+			<div className='container'>
+				<div className={scss.content}>
+					<h1>Тарифы</h1>
 
-        <div className={scss.cards}>
-          <EkonomCard/>
-          <ComfordCard/>
-          <ComfortPlusCard/>
-        </div>
-      </div>
-    </div>
-  </section>;
+					<div className={scss.cards}>
+						{Array.from({ length: 3 }).map((_, i) => (
+							<TrafficCard
+								type={i == 1 ? 'comfort' : 'ekonom'}
+								key={`${i}-key`}
+							/>
+						))}
+					</div>
+				</div>
+			</div>
+		</section>
+	);
 };
 
-export default TariffsSection; 
+export default TariffsSection;

@@ -1,8 +1,9 @@
 .Main {
 	width: 100%;
-	padding: 70px 0;
 	overflow: hidden;
 	position: relative;
+	padding: 50px 0;
+	background: var(--color-bg);
 	.bg {
 		position: absolute;
 		width: 100%;
@@ -12,7 +13,6 @@
 
 	.pre_main {
 		position: relative;
-		margin: 5px 100px;
 		border-radius: 20px;
 		transition: all 0.45s;
 

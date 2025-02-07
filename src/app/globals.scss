@@ -1,14 +1,28 @@
 :root {
-  /* Цветовая палитра */
-  --color-primary: #007acc; /* Основной цвет */
-  --color-text: #333; /* Цвет текста */
-  --color-background: rgba(0, 0, 0, 0.111); /* Цвет фона */
-  --color-border: #ccc; /* Цвет границ */
+  --angel-primary-gradient: 125deg;
+
+  --color-primary: #0EB0E7;
+  --color-secondary: #43b5d8;
+  --color-primary-gradient: var(--color-primary) 30%, var(--color-secondary);
+  --default-primary-gradient: linear-gradient(var(--angel-primary-gradient), var(--color-primary-gradient));
+
+
+  --color-bg: #ebf9fa;
+
+  /* Основной цвет */
+  --color-text: #333;
+  /* Цвет текста */
+  --color-background: rgba(0, 0, 0, 0.111);
+  /* Цвет фона */
+  --color-border: #ccc;
+  /* Цвет границ */
 
   /* Шрифты */
-  --font-family: "Montserrat", sans-serif;
-  --font-size-base: 16px; /* Базовый размер шрифта */
-  --line-height: 1.6; /* Межстрочное расстояние */
+  --font-family: 'Inter', Arial, Helvetica, sans-serif;
+  --font-size-base: 16px;
+  /* Базовый размер шрифта */
+  --line-height: 1.6;
+  /* Межстрочное расстояние */
 
   /* Отступы */
   --container-max-width: 1240px;
@@ -28,6 +42,13 @@ link {
   box-sizing: border-box;
 }
 
+button {
+  cursor: pointer;
+  border: 0;
+  background-color: transparent;
+  outline: 0;
+}
+
 html {
   scroll-behavior: smooth;
   font-size: var(--font-size-base);
@@ -35,22 +56,14 @@ html {
 }
 
 body {
-  background: rgb(216, 213, 213);
   width: 100%;
   font-family: var(--font-family);
   font-size: 1rem;
   line-height: var(--line-height);
   color: var(--color-text);
-  /* Добавляем полупрозрачный фон */
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0
-  ); /* Значение 0.8 можно менять от 0 до 1 */
   background-image: url("/assets/images/Bg_all.png");
+  background-repeat: no-repeat;
   background-size: contain;
-  /* Добавляем свойство blend mode */
   background-blend-mode: overlay;
 }
 

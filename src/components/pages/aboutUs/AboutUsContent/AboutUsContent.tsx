@@ -5,12 +5,15 @@ import { aboutLider } from "./constants/constants";
 import AboutCards from "@/components/ui/cards/about_cards/AboutCards";
 import AboutUsImages from "./AboutUsImage/AboutUsImage";
 import Whywe from "./WhyWe/WhyWe";
+import QuestionsSection from "../../home/QuestionsSection/QuestionsSection";
 
 const AboutUsContent = () => {
   return (
     <div className={scss.AboutUsContent}>
       <div className={scss.head_about}>
-        <h1>О компании «Lider Umrah</h1>
+        <h1>
+          О компании <span>«Lider Umrah»</span>
+        </h1>
         <IoIosArrowDown />
       </div>
       <div className="container">
@@ -41,6 +44,7 @@ const AboutUsContent = () => {
       </div>
       <AboutUsImages />
       <Whywe />
+      <QuestionsSection />
     </div>
   );
 };

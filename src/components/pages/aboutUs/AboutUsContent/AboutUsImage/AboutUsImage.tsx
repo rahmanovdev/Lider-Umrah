@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import scss from "./AboutUsImage.module.scss";
+import { BsImages } from "react-icons/bs";
 
 const localImages = [
   "/assets/aboutUsImages/about1.png",
@@ -123,9 +124,12 @@ const AboutUsImages = () => {
               </div>
             )}
           </div>
-          <div className={scss.btn_photo}>
-            <button>Все галерея</button>
-          </div>
+          {/* <div className={scss.btn_photo}>
+            <button>
+              <BsImages className={scss.icon} />
+              Все галерея
+            </button>
+          </div> */}
         </div>
       </div>
     </section>

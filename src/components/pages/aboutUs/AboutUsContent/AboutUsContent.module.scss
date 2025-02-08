@@ -1,19 +1,63 @@
 .AboutUsContent {
+  display: flex;
+  flex-direction: column;
   .head_about {
-    background-image: url("../../../../../public/assets/images/kaaba-в-мекке-56942224.webp");
-    height: 240px;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.8),
+        // көлөкөнүн күчү, 0.6 = 60% кара
+        rgba(0, 0, 0, 0.4)
+      ),
+      url("../../../../../public/assets/images/Kaaba-in-Masjid-Al-Haram-in-Mecca-Islamic-Wallpaper-for-Wall-M.jpg");
+    height: 280px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 90px 0 0 160px;
+
+    h1 {
+      color: white;
+      font-size: 32px;
+    }
+
+    span {
+      color: rgb(7, 212, 75);
+    }
+
+    svg {
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      fill: white;
+      transition: all 0.3s ease;
+
+      &:hover {
+        fill: rgb(197, 211, 203);
+      }
+    }
   }
 
   .content {
     margin: 90px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 90px;
+
+    .video_container {
+      width: max-content;
+      border-radius: 20px;
+      iframe {
+        border-radius: 20px;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+      }
+    }
 
     .about_content {
       display: flex;
       align-items: center;
-      gap: 38px;
+      gap: 50px;
     }
   }
 }

@@ -7,6 +7,7 @@
   border-radius: 20px;
   overflow: hidden;
   will-change: transform;
+  z-index: -20;
 
   .imageWrapper {
     position: absolute;

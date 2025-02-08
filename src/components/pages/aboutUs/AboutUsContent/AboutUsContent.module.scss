@@ -1,12 +1,10 @@
 .AboutUsContent {
   display: flex;
   flex-direction: column;
+
   .head_about {
-    background-image: linear-gradient(
-        rgba(0, 0, 0, 0.8),
-        // көлөкөнүн күчү, 0.6 = 60% кара
-        rgba(0, 0, 0, 0.4)
-      ),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.4)),
       url("../../../../../public/assets/images/Kaaba-in-Masjid-Al-Haram-in-Mecca-Islamic-Wallpaper-for-Wall-M.jpg");
     height: 280px;
     background-position: center;
@@ -23,7 +21,7 @@
     }
 
     span {
-      color: rgb(7, 212, 75);
+      color: var(--color-primary);
     }
 
     svg {
@@ -39,6 +37,14 @@
     }
   }
 
+  .container {
+    padding: 10px 40px;
+    background: #ebf9fa;
+    border-radius: 30px;
+    margin: 30px auto;
+    max-width: calc(var(--container-max-width) + 200px);
+  }
+
   .content {
     margin: 90px 0;
     display: flex;
@@ -48,6 +54,7 @@
     .video_container {
       width: max-content;
       border-radius: 20px;
+
       iframe {
         border-radius: 20px;
         box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);

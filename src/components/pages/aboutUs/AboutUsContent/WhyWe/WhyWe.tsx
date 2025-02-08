@@ -5,9 +5,14 @@ import Image from 'next/image';
 import { useTimeLine } from '@/hooks/use-time-line';
 import { motion } from 'framer-motion';
 
+const packages = Array.from({ length: 20 }, () => ({
+	title: `Работаем с 2006 года`,
+	content: 'Один из самых первых и крупных Хадж/Умра операторов России'
+}));
 const Whywe = () => {
-	const { containerRef, height, heightTransform,  ref } =
+	const { containerRef, height, heightTransform, ref, activeSections } =
 		useTimeLine();
+
 	return (
 		<section className={scss.whywe}>
 			<div className={`${scss.container} container`}>
@@ -30,8 +35,12 @@ const Whywe = () => {
 										scss.timelineEntry
 									}`}
 								>
-									<div className={scss.timelineMark}>
-										<div className={`${scss.markCircleOuter} ${''}`}>
+									<div className={scss.timelineMark} data-timeline-mark>
+										<div
+											className={`${scss.markCircleOuter} ${
+												activeSections.includes(index) && scss.active
+											}`}
+										>
 											{index + 1}
 										</div>
 									</div>
@@ -50,7 +59,7 @@ const Whywe = () => {
 							>
 								<motion.div
 									style={{
-										height: heightTransform,
+										height: heightTransform
 									}}
 									className={scss.timelineProgress}
 								/>
@@ -62,10 +71,5 @@ const Whywe = () => {
 		</section>
 	);
 };
-
-const packages = Array.from({ length: 20 }, () => ({
-	title: `Работаем с 2006 года`,
-	content: 'Один из самых первых и крупных Хадж/Умра операторов России'
-}));
 
 export default Whywe;

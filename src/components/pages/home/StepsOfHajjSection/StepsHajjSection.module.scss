@@ -4,6 +4,7 @@
 	position: relative;
 	padding: 50px 0;
 	background: var(--color-bg);
+
 	.bg {
 		position: absolute;
 		width: 100%;
@@ -30,10 +31,10 @@
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
-				transition: all 0.25s;
 
 				.block.active {
 					opacity: 1;
+					transform: scale(1.05);
 				}
 
 				.block.inactive {
@@ -49,6 +50,7 @@
 					width: 220px;
 					height: 320px;
 					padding: 30px 0;
+					transition: all 0.25s;
 
 					border: 1.28px solid rgba(1, 82, 36, 0.5);
 					border-radius: 24px;

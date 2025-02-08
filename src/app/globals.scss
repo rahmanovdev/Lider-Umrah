@@ -1,9 +1,9 @@
 :root {
-  --angel-primary-gradient: 125deg;
+  --angel-primary-gradient: 145deg;
 
-  --color-primary: #0EB0E7;
-  --color-secondary: #43b5d8;
-  --color-primary-gradient: var(--color-primary) 30%, var(--color-secondary);
+  --color-primary: #12abcd;
+  --color-secondary: #2c67f2;
+  --color-primary-gradient: var(--color-primary), var(--color-secondary);
   --default-primary-gradient: linear-gradient(var(--angel-primary-gradient), var(--color-primary-gradient));
 
 

@@ -6,10 +6,15 @@ type TProps = {
 	type: "ekonom" | 'comfort'
 }
 
+const Type = {
+	ekonom: "Эконом",
+	comfort: "Комфорт"
+}
+
 const TrafficCard: React.FC<TProps> = ({type}) => {
 	return (
 		<div className={`${scss[type]} ${scss.Main}`}>
-			<h2>Эконом</h2>
+			<h2>{Type[type]}</h2>
 			<div className={scss.data_block}>
 				<p>
 					от <span>2 марта</span>

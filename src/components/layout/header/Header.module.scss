@@ -13,7 +13,7 @@
     .line {
       width: 1px;
       height: 30px;
-      background-color: #13b359;
+      background: var(--color-primary);
     }
 
     .header_start {
@@ -45,7 +45,7 @@
             cursor: pointer;
 
             &:hover {
-              color: rgb(19, 179, 89);
+              color: var(--color-primary);
             }
           }
 
@@ -99,7 +99,7 @@
                   transition: color 0.3s ease;
 
                   &:hover {
-                    color: rgb(19, 179, 89);
+                    color: var(--color-primary)
                   }
                 }
               }
@@ -126,7 +126,7 @@
         gap: 10px;
 
         svg {
-          fill: rgb(19, 179, 89);
+          fill: var(--color-primary);
         }
 
         a {
@@ -174,12 +174,12 @@
             transition: all 0.3s ease;
 
             &:hover {
-              background-color: rgb(19, 179, 89);
+              background-color: var(--color-primary);
               color: white;
             }
 
             &.active {
-              color: rgb(19, 179, 89);
+              color: var(--color-primary);
 
               &:hover {
                 color: white;
@@ -202,6 +202,6 @@
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: rgb(19, 179, 89);
+    background-color: var(--color-primary);
   }
 }

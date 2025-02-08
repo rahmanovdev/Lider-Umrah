@@ -6,126 +6,13 @@
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
+
 	.title {
 		font-size: 40px;
 		font-weight: bold;
 		line-height: auto;
 		margin: 0 auto;
-		margin-top: 101px;
-		margin-bottom: 63px;
+		margin-top: 81px;
+		margin-bottom: 43px;
 	}
-}
-
-.content {
-	display: flex;
-	align-items: flex-start;
-	gap: 50px;
-}
-
-.img-card {
-	min-width: 350px;
-	height: 350px;
-	background-color: #8e7777;
-	border-radius: 25px;
-}
-
-.wrapper {
-	width: 100%;
-	font-family: sans-serif;
-	overflow: hidden;
-}
-
-.timelineContainer {
-	position: relative;
-	max-width: 80rem;
-	margin: 0 auto;
-	padding-bottom: 5rem;
-}
-
-.timelineEntry {
-	display: flex;
-	justify-content: flex-start;
-	&:not(.isFirst) {
-		margin-top: 10rem;
-	}
-}
-
-.timelineMark {
-	position: sticky;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	top: 0;
-	align-self: flex-start;
-	z-index: 40;
-}
-
-.markCircleOuter {
-	height: 2.4rem;
-	width: 2.4rem;
-	position: absolute;
-	left: 0;
-	background-color: #13b359;
-	color: white;
-	border-radius: 9999px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.markTitle {
-	display: block;
-	font-size: 2rem;
-	line-height: auto;
-	margin-bottom: 1.2rem;
-	text-align: left;
-	font-weight: 600;
-	color: #000;
-}
-
-.contentWrapper {
-	position: relative;
-	padding-left: 5rem;
-	width: 100%;
-}
-
-.timelineLine {
-	position: absolute;
-	left: 1.1rem;
-	top: 0;
-	overflow: hidden;
-	width: 4px;
-	background: linear-gradient(
-		to bottom,
-		var(--line-color) 10%,
-		var(--line-color) 90%,
-		transparent 100%
-	);
-	mask-image: linear-gradient(to bottom, black 10%, black 90%);
-}
-
-.timelineProgress {
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	width: 4px;
-	background: linear-gradient(
-		to top,
-		var(--progress-from) 0%,
-		var(--progress-via) 10%,
-		transparent 100%
-	);
-	border-radius: 9999px;
-}
-
-:root {
-	--bg-primary: #ffffff;
-	--text-primary: #000000;
-	--text-secondary: #404040;
-	--circle-bg: #e5e5e5;
-	--circle-border: #d4d4d4;
-	--line-color: #e5e5e5;
-	--progress-from: #5cc489;
-	--progress-via: #13b359;
 }

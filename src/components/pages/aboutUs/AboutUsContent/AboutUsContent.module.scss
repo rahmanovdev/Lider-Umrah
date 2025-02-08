@@ -3,8 +3,7 @@
   flex-direction: column;
 
   .head_about {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.8),
-        rgba(0, 0, 0, 0.4)),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)),
       url("../../../../../public/assets/images/Kaaba-in-Masjid-Al-Haram-in-Mecca-Islamic-Wallpaper-for-Wall-M.jpg");
     height: 280px;
     background-position: center;
@@ -63,7 +62,6 @@
 
     .about_content {
       display: flex;
-      align-items: center;
       gap: 50px;
     }
   }

@@ -1,8 +1,6 @@
-import PackegesDetailContent from "@/components/pages/packages/PackegesDetailContent/PackegesDetailContent";
-// import PackegesPage from "@/components/pages/PackegesPage";
+import PackegesPage from "@/components/pages/PackegesPage";
 import React from "react";
 
-// const page = () => <PackegesPage />;
-const page = () => <PackegesDetailContent />;
+const page = () => <PackegesPage />;
 
 export default page;

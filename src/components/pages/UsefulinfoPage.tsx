@@ -1,13 +1,14 @@
-import React from "react";
-import scss from "./UsefulinfoPage.module.scss";
-import UsefulinfoContent from "./usefulinfo/UsefulinfoContent/UsefulinfoContent";
+import scss from './UsefulinfoPage.module.scss';
+import React from 'react';
+import UsefulinfoContent from './usefulinfo/UsefulinfoContent/UsefulinfoContent';
 
 const UsefulinfoPage = () => {
-  return (
-    <>
-      <UsefulinfoContent />
-    </>
-  );
+	return (
+		<div className={scss.pageContainer}>
+			<h4 className={scss.title}>Полезные информации</h4>
+			<UsefulinfoContent />
+		</div>
+	);
 };
 
 export default UsefulinfoPage;

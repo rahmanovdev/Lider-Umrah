@@ -1,0 +1,218 @@
+.HeadPackegeDet {
+  padding: 40px 0;
+  width: 100%;
+  background: #f1fbfc;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    .card_container {
+      display: flex;
+      gap: 20px;
+      align-items: stretch; // Changed from center to stretch
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: space-between; // Better spacing
+
+      .info_card {
+        background: var(--default-primary-gradient);
+        padding: 24px; // Consistent padding
+        border-radius: 16px;
+        color: white;
+        width: 100%;
+        max-width: 590px;
+        min-height: 262px; // Match image height
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        display: flex; // Added flex display
+        flex-direction: column; // Stack children vertically
+
+        .text_card {
+          padding-top: 10px;
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+          flex: 1; // Take remaining space
+        }
+
+        hr {
+          width: 360px;
+          margin: 1px auto;
+          border: none;
+          height: 1px;
+          background: linear-gradient(
+            to right,
+            transparent,
+            rgba(255, 255, 255, 0.75),
+            transparent
+          );
+        }
+
+        .date_range {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 10px;
+          color: white;
+          margin-bottom: 15px;
+
+          .date_item {
+            text-align: center;
+
+            h1 {
+              font-size: clamp(30px, 5vw, 40px);
+              margin: 0;
+              line-height: 1;
+            }
+
+            .month_year {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+
+              .month {
+                display: flex;
+                align-items: flex-start; // Corrected from start
+                flex-direction: column;
+
+                h5 {
+                  font-size: clamp(12px, 2vw, 14px);
+                  margin: 0;
+                }
+              }
+            }
+          }
+
+          .line {
+            width: 40px;
+            height: 2px;
+            background: white;
+            margin: 0 15px;
+          }
+        }
+
+        h2 {
+          font-size: clamp(20px, 3vw, 28px);
+          margin: 0; // Added
+        }
+
+        p {
+          font-size: clamp(12px, 2vw, 14px);
+          line-height: 1.5;
+          margin: 0; // Added
+        }
+
+        button {
+          border: 1px solid white;
+          color: #f4f4f4;
+          padding: 8px 20px;
+          border-radius: 16px;
+          cursor: pointer;
+          font-size: clamp(12px, 2vw, 14px);
+          transition: all 0.3s ease; // Improved transition
+          width: 200px;
+          display: block;
+          background: transparent;
+          margin-top: auto; // Push to bottom of flex container
+
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transform: translateY(-1px); // Subtle lift effect
+          }
+        }
+      }
+
+      .image_card {
+        position: relative;
+        width: 100%;
+        max-width: 590px;
+        height: 288px; // Fixed height
+        border-radius: 16px; // Match card radius
+        overflow: hidden; // Contain image
+
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 16px;
+          object-fit: cover;
+        }
+
+        .overlay_text {
+          position: absolute;
+          bottom: 10px;
+          left: 10px;
+          background: rgba(0, 0, 0, 0.6);
+          color: white;
+          padding: 5px 10px;
+          border-radius: 5px;
+          font-size: clamp(12px, 2vw, 14px);
+          backdrop-filter: blur(4px); // Added subtle blur
+        }
+      }
+    }
+
+    .call_buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      // max-width: 590px; // Match card width
+
+      button {
+        flex: 1; // Equal width buttons
+        background: var(--default-primary-gradient);
+        border: none;
+        padding: 16px 26px;
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: clamp(12px, 2vw, 16px);
+        transition: all 0.3s ease;
+        // min-width: 120px; // Minimum width
+        white-space: nowrap; // Prevent text wrap
+
+        &:hover {
+          background-color: #0056b3;
+          transform: translateY(-1px);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .HeadPackegeDet {
+    .content {
+      padding: 0 15px; // Added padding
+
+      .card_container {
+        flex-direction: column;
+        gap: 15px; // Reduced gap
+
+        .info_card,
+        .image_card {
+          max-width: 100%;
+          min-height: auto; // Reset height
+        }
+
+        .image_card {
+          height: 200px; // Reduced height on mobile
+        }
+      }
+
+      .call_buttons {
+        flex-direction: column; // Stack buttons
+        max-width: 100%;
+
+        button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

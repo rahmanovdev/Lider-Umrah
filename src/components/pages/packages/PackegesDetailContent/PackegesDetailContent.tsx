@@ -1,13 +1,14 @@
 import React from "react";
 import scss from "./PackegesDetailContent.module.scss";
+import HeadPackegeDet from "./Head_PackeckgeDet/HeadPackegeDet";
+import AboutProgramDet from "./AboutProgramDet/AboutProgramDet";
 
 const PackegesDetailContent = () => {
   return (
-    <div className={scss.PackegesDetailContent}>
-      <div className="container">
-        <div className={scss.content}></div>
-      </div>
-    </div>
+    <>
+      <HeadPackegeDet />
+      <AboutProgramDet />
+    </>
   );
 };
 

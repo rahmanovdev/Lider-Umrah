@@ -1,0 +1,79 @@
+.sectionList {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  margin: 40px auto;
+}
+
+.sectionButton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 40px 16px;
+  background: var(--color-bg);
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.buttonText {
+  font-size: 16px;
+  font-weight: 500;
+  width: 120px;
+  color: #333;
+}
+
+.iconContainer {
+  position: absolute;
+  right: 0;
+  width: 80px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  border-radius: 40px 0 0 40px;
+  background: #ffffff;
+
+  .iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: #f0f3ff;
+    border-radius: 12px;
+  }
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  color: #2563eb;
+}
+
+// Жаңы кошулган стилдер
+.contentCard {
+  width: 100%;
+  background: var(--color-bg);
+  border-radius: 40px;
+  margin-top: -20px;
+  padding: 40px;
+  display: flex;
+  gap: 40px;
+}
+
+.imageContainer {
+  flex: 0 0 400px;
+  background: #e5e5e5;
+  border-radius: 20px;
+  height: 300px;
+}
+
+.textContent {
+  flex: 1;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  line-height: 1.6;
+}

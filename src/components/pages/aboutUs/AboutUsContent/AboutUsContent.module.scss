@@ -62,7 +62,12 @@
 
     .about_content {
       display: flex;
-      gap: 50px;
+      gap: 60px;
+
+      .item {
+        font-size: 18px;
+        line-height: 1.8;
+      }
     }
   }
 }

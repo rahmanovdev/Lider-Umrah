@@ -1,19 +1,14 @@
 .About_ProgramDet {
+  margin: 60px 0;
   .content {
     display: flex;
-    align-items: center;
-    gap: 30px;
-    justify-content: space-between;
+    align-items: start;
+    gap: 90px;
 
     .program_left {
       display: flex;
       flex-direction: column;
       gap: 20px;
-
-      h1 {
-        font-size: 32px;
-        font-weight: 700;
-      }
 
       img {
         width: 300px;
@@ -22,11 +17,24 @@
       }
     }
 
-    p {
-      font-size: 16px;
-      font-weight: 400;
-      color: black;
-      width: 60%;
+    .about_text {
+      display: flex;
+      justify-content: start;
+      flex-direction: column;
+      gap: 20px;
+
+      h1 {
+        font-size: 34px;
+        font-weight: 700;
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 2;
+        font-weight: 500;
+        color: rgb(42, 39, 39);
+        width: 90%;
+      }
     }
   }
 }

@@ -1,13 +1,14 @@
 import React from 'react';
-import scss from './TariffsSection.module.scss';
+import scss from './TrafficsSection.module.scss';
 import TrafficCard from '@/components/ui/cards/traffic-card/TrafficCard';
+import TrafficFilters from '../traffic-filters/TrafficFilters';
 
-const TariffsSection = () => {
+const TrafficsSection = () => {
 	return (
 		<section className={scss.Main}>
 			<div className='container'>
 				<div className={scss.content}>
-					<h1>Тарифы</h1>
+					<TrafficFilters />
 
 					<div className={scss.cards}>
 						{Array.from({ length: 3 }).map((_, i) => (
@@ -23,4 +24,4 @@ const TariffsSection = () => {
 	);
 };
 
-export default TariffsSection;
+export default TrafficsSection;

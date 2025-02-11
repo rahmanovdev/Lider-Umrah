@@ -13,6 +13,7 @@ const localImages = [
 	'/assets/about.webp'
 ];
 
+
 interface TextDictionary {
 	kg: string[];
 	ru: string[];

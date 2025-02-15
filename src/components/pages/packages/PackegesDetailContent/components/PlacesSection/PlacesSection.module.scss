@@ -18,6 +18,7 @@
     flex-direction: column;
     gap: 30px;
     margin-top: 20px;
+
     h1 {
       text-align: center;
       font-size: 30px;
@@ -39,13 +40,11 @@
       top: 0;
       height: 100%;
       width: 1px;
-      background: linear-gradient(
-        to bottom,
-        transparent,
-        #ebebeb 10%,
-        #e5e7eb 90%,
-        transparent
-      );
+      background: linear-gradient(to bottom,
+          transparent,
+          #ebebeb 10%,
+          #e5e7eb 90%,
+          transparent);
     }
   }
 
@@ -53,6 +52,8 @@
     flex: 1;
     border-radius: 16px;
     position: relative;
+    padding: 8 16px;
+    box-shadow: 0px 3px 9px 0px #eaeaea;
 
     h2 {
       font-size: 24px;

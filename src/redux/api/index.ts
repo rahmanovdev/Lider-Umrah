@@ -18,6 +18,6 @@ export const api = createApi({
   baseQuery: baseQueryExtended,
   refetchOnFocus: true,
   refetchOnReconnect: true,
-  tagTypes: [],
+  tagTypes: ['tours'],
   endpoints: () => ({}),
 });

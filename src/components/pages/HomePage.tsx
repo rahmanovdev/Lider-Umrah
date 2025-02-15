@@ -8,6 +8,7 @@ import InformationSection from "./home/InformationSection/InformationSection";
 import TrafficsSection from './home/TrafficsSection/TrafficsSection'
 
 const HomePage = () => {
+
   return (
     <>
       <div className={scss.HomePage}>

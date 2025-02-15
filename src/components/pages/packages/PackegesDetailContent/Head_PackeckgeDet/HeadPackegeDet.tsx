@@ -2,6 +2,14 @@ import React from 'react';
 import scss from './HeadPackegeDet.module.scss';
 
 const HeadPackegeDet = () => {
+	// Бекендден келген маалымат
+	const hajjLeader = {
+		name: 'Максат Ажы Токтомушев',
+		image: '/path/to/leader-image.jpg',
+		description:
+			'Көп жылдык тажрыйбага ээ, көптөгөн зыяратчыларды ийгиликтүү коштоп барган.'
+	};
+
 	return (
 		<div className={scss.HeadPackegeDet}>
 			<div className='container'>
@@ -40,12 +48,29 @@ const HeadPackegeDet = () => {
 							</div>
 						</div>
 						<div className={scss.image_card}>
-							<img src={'/assets/images/bg_2hero.png'} alt='Lider Umrah' />
-							<div className={scss.overlay_text}>Lider Umrah</div>
+							<div className={scss.leader_container}>
+								<div className={scss.leader_header}>
+									<h3>Ажы башчы менен</h3>
+								</div>
+								<div className={scss.leader_content}>
+									<div className={scss.leader_image}>
+										<img
+											src='https://bulak.kg/wp-content/uploads/2022/08/maksat-tok.jpg'
+											alt={hajjLeader.name}
+										/>
+									</div>
+									<div className={scss.leader_info}>
+										<h4>{hajjLeader.name}</h4>
+										<p>{hajjLeader.description}</p>
+										<button className={scss.leader_button}>
+											Ажы башчы жонундо маалымат
+										</button>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 
-					{/* Блок кнопок */}
 					<div className={scss.call_buttons}>
 						<button>Арыз берүү</button>
 						<button>Ватсапка жазуу</button>

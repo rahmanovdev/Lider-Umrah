@@ -1,17 +1,18 @@
 import React from 'react';
 import scss from './TrafficCard.module.scss';
 import Image from 'next/image';
+import Link from 'next/link'
 
 type TProps = {
-	type: "ekonom" | 'comfort'
-}
+	type: 'ekonom' | 'comfort';
+};
 
 const Type = {
-	ekonom: "Эконом",
-	comfort: "Комфорт"
-}
+	ekonom: 'Эконом',
+	comfort: 'Комфорт'
+};
 
-const TrafficCard: React.FC<TProps> = ({type}) => {
+const TrafficCard: React.FC<TProps> = ({ type }) => {
 	return (
 		<div className={`${scss[type]} ${scss.Main}`}>
 			<h2>{Type[type]}</h2>
@@ -56,8 +57,8 @@ const TrafficCard: React.FC<TProps> = ({type}) => {
 				</div>
 			</div>
 
-			<div className={scss.button}>
-				<button> Подробнее </button>
+			<div className={scss.link}>
+				<Link href={`/packages/${1}`}> Подробнее </Link>
 			</div>
 		</div>
 	);

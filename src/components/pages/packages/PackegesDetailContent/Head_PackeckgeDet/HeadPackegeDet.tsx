@@ -45,7 +45,6 @@ const HeadPackegeDet = () => {
 						</div>
 					</div>
 
-					{/* Блок кнопок */}
 					<div className={scss.call_buttons}>
 						<button>Арыз берүү</button>
 						<button>Ватсапка жазуу</button>

@@ -3,6 +3,29 @@
     padding-bottom: 80px;
 
     .content {
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 35px;
+
+            h1 {
+                font-size: 38px;
+                font-weight: 500;
+                line-height: 1;
+            }
+
+            a {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
         .cards {
             display: flex;
             align-items: center;

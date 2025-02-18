@@ -16,7 +16,7 @@ const Whywe = () => {
   return (
     <section className={scss.whywe}>
       <div className={`${scss.container} container`}>
-        <h2>Что нас отличает от других компаний?</h2>
+        <h2>Что нас отличает от других компаний?</h2> 
         <div className={scss["content"]}>
           <figure className={scss["figure"]}>
             <Image

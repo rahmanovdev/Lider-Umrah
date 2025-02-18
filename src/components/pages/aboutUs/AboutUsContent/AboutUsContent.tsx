@@ -14,7 +14,7 @@ const AboutUsContent = () => {
         <h1>
           О компании <span>«Lider Umrah»</span>
         </h1>
-        <IoIosArrowDown />
+        <IoIosArrowDown /> 
       </div>
       <div className={scss["about"]}>
         <div className={`container ${scss.container}`}>

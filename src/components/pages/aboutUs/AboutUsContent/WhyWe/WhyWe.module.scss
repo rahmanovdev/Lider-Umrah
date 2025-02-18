@@ -17,22 +17,15 @@
 			margin-bottom: 1.3em;
 		}
 
-		figure {
-			position: sticky;
-			top: 30px;
-		}
-
 		.content {
 			display: flex;
 			align-items: flex-start;
 			gap: 50px;
 		}
 
-		.img-card {
-			min-width: 350px;
-			height: 350px;
-			background-color: #8e7777;
-			border-radius: 25px;
+		.figure {
+			position: sticky;
+			top: 30px;
 		}
 
 		.wrapper {
@@ -88,8 +81,7 @@
 		.markTitle {
 			display: block;
 			font-size: 2rem;
-			line-height: auto;
-			margin-bottom: 1.1rem;
+			margin-bottom: 0.8rem;
 			text-align: left;
 			font-weight: 600;
 			color: #000;
@@ -99,6 +91,7 @@
 			position: relative;
 			padding-left: 5rem;
 			width: 100%;
+			margin-bottom: -20px;
 		}
 
 		.timelineLine {
@@ -126,7 +119,67 @@
 					transparent 100%);
 			border-radius: 9999px;
 		}
+	}
 
+	@media (max-width: 1024px) {
+		.container {
+			h2 {
+				margin-top: -70px;
+			}
+			.content {
+				flex-direction: column;
+				align-items: center;
+				gap: 30px;
+			}
 
+			.figure {
+				display: none;
+			}
+
+			.markTitle {
+				font-size: 1.8rem;
+			}
+
+			.contentWrapper {
+				margin-bottom: -70px;
+			}
+		}
+	}
+
+	@media (max-width: 768px) {
+		.container {
+			.content {
+				gap: 20px;
+			}
+
+			
+
+			.markTitle {
+				font-size: 1.5rem;
+			}
+		}
+	}
+
+	@media (max-width: 480px) {
+		.container {
+			h2 {
+				font-size: 1.6rem;
+				text-align: center;
+			}
+
+			.content {
+				gap: 15px;
+			}
+
+			.markTitle {
+				font-size: 1.2rem;
+			}
+
+			.markCircleOuter {
+				height: 2.5rem;
+				width: 2.5rem;
+				font-size: 1rem;
+			}
+		}
 	}
 }

@@ -1,21 +1,31 @@
+'use client';
+import TrafficCard from '@/components/ui/cards/traffic-card/TrafficCard';
 import React from 'react';
 import scss from './TrafficsSection.module.scss';
-import TrafficCard from '@/components/ui/cards/traffic-card/TrafficCard';
 
-const TrafficsSection: React.FC<React.PropsWithChildren> = ({children}) => {
+const TrafficsSection: React.FC<
+	React.PropsWithChildren & {
+		tours: TOURS.GetTourPackagesResponse;
+	}
+> = ({ children, tours }) => {
 	return (
 		<section className={scss.Main}>
 			<div className='container'>
+				{children}
 				<div className={scss.content}>
-					{children}
-
 					<div className={scss.cards}>
-						{Array.from({ length: 3 }).map((_, i) => (
-							<TrafficCard
-								type={i == 1 ? 'comfort' : 'ekonom'}
-								key={`${i}-key`}
-							/>
-						))}
+						{tours.map((tour, index) => {
+							// Ортоңку картаны comfort кылабыз
+							const cardType = index === 1 ? 'comfort' : 'ekonom';
+							// Акыркы 3 турду props катары берип жатабыз
+							const currentTour = tours[index];
+
+							return (
+								<div key={currentTour.id} className={scss[cardType]}>
+									<TrafficCard tour={tour} type={cardType} />
+								</div>
+							);
+						})}
 					</div>
 				</div>
 			</div>

@@ -1,17 +1,24 @@
-import { api as index } from ".."
+import { api as index } from '..';
 
-const ENDPOINTS = process.env.NEXT_PUBLIC_ENDPOINT
+const ENDPOINTS = process.env.NEXT_PUBLIC_ENDPOINT;
 
 const api = index.injectEndpoints({
-	endpoints: (build) => ({
-		getTours: build.query<any, void>({
+	endpoints: build => ({
+		getTours: build.query<TOURS.GetTourPackagesResponse, void>({
 			query: () => ({
 				url: `${ENDPOINTS}/tour/packages`,
-				method: "GET",
+				method: 'GET'
 			}),
-			providesTags: ["tours"],
+			providesTags: ['tours']
 		}),
-	}),
-})
+		getTourById: build.query<TOURS.ITourPackages, number>({
+			query: id => ({
+				url: `${ENDPOINTS}/tour/packages/${id}/`,
+				method: 'GET'
+			}),
+			providesTags: ['tours']
+		})
+	})
+});
 
-export const { useGetToursQuery } = api
+export const { useGetToursQuery, useGetTourByIdQuery } = api;

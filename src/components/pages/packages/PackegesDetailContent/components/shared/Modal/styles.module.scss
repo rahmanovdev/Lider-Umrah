@@ -1,3 +1,4 @@
+// Modal.module.scss
 .modalOverlay {
   position: fixed;
   top: 0;
@@ -17,7 +18,7 @@
   border-radius: 8px;
   width: 80%;
   max-width: 700px;
-  max-height: 90%;
+  max-height: 90vh;
   overflow-y: auto;
 }
 
@@ -26,6 +27,13 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
+
+  h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+  }
 }
 
 .closeButton {
@@ -33,4 +41,41 @@
   border: none;
   font-size: 24px;
   cursor: pointer;
+  color: var(--color-text);
+  padding: 4px 8px;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.modalBody {
+  p {
+    margin: 0.8em 0;
+    line-height: 1.6;
+    color: var(--color-text);
+    font-size: 16px;
+  }
+
+  // Дополнительные стили для HTML контента
+  ul,
+  ol {
+    margin: 1em 0;
+    padding-left: 1.5em;
+  }
+
+  li {
+    margin: 0.5em 0;
+  }
+
+  strong,
+  b {
+    font-weight: 600;
+  }
+
+  em,
+  i {
+    font-style: italic;
+  }
 }

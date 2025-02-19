@@ -1,5 +1,5 @@
 import { api as index } from '..';
-import { Package } from './types'
+import { Package } from './types';
 
 const ENDPOINTS = process.env.NEXT_PUBLIC_ENDPOINT;
 
@@ -58,6 +58,25 @@ const api = index.injectEndpoints({
 			}
 		}),
 
+		getPlaces: build.query<Package.GetPlacesResponse, Package.DetailType>({
+			query: detailType => ({
+				url: `${ENDPOINTS}/tour/package-details/`,
+				method: 'GET',
+				params: { detail_type: detailType }
+			}),
+			transformResponse: (response: Package.GetPackageDetailsResponse) => {
+				return response
+					.filter(item => item.detail_type === 'PlacesToVisit')
+					.map(item => ({
+						id: item.id,
+						title: item.name,
+						description: item.rich,
+						shortDescription: item.rich.substring(0, 150), 
+						image: item.image
+					}));
+			}
+		}),
+
 		getWarnings: build.query<Package.GetWarningsResponse, Package.DetailType>({
 			query: detailType => ({
 				url: `${ENDPOINTS}/tour/package-details/`,
@@ -79,6 +98,7 @@ const api = index.injectEndpoints({
 });
 
 export const {
+	useGetPlacesQuery,
 	useGetPackageDetailsQuery,
 	useGetPackageDetailByIdQuery,
 	useGetFoodInfoQuery,

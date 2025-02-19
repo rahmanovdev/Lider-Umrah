@@ -1,5 +1,5 @@
 .whywe {
-  --bg-primary: #ffffff;
+  --bg-primary: transparent;
   --text-primary: #000000;
   --text-secondary: #404040;
   --circle-bg: #e5e5e5;
@@ -37,6 +37,9 @@
       position: relative;
       margin: 0 auto;
       padding-bottom: 5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
     }
 
     .timelineEntry {

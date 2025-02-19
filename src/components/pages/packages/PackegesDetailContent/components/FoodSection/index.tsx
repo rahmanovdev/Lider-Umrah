@@ -3,7 +3,7 @@ import Image from 'next/image';
 import styles from './styles.module.scss';
 import { useState } from 'react';
 import clsx from 'clsx';
-import { useGetFoodInfoQuery } from '@/redux/api/tour-details'
+import { useGetFoodInfoQuery } from '@/redux/api/tour-details';
 
 export const FoodSection: React.FC = () => {
 	const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -67,7 +67,12 @@ export const FoodSection: React.FC = () => {
 			</div>
 			<div className={styles.foodInfo}>
 				<h2>{currentFood.title}</h2>
-				<p>{currentFood.description}</p>
+				<div
+					className={styles.description_content}
+					dangerouslySetInnerHTML={{
+						__html: currentFood.description
+					}}
+				/>
 			</div>
 		</div>
 	);

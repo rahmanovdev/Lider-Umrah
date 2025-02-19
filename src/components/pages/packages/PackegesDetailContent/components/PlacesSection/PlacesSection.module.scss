@@ -52,7 +52,7 @@
     flex: 1;
     border-radius: 16px;
     position: relative;
-    padding: 8 16px;
+    padding: 8px 16px;
     box-shadow: 0px 3px 9px 0px #eaeaea;
 
     h2 {
@@ -113,13 +113,98 @@
           font-weight: 500;
           color: #454c54;
         }
+
+        .starRating {
+          display: inline-flex;
+          gap: 4px;
+          align-items: center;
+          margin-left: auto;
+
+          .star {
+            color: #FFD700;
+            font-size: 18px;
+          }
+        }
       }
+    }
+  }
+
+  .placesList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .placesContent {
+    .hotelContainer {
+      flex-direction: column;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    .placesList {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 }
 
-.placesList {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+@media (max-width: 768px) {
+  .placesContent {
+    padding: 15px;
+
+    h1 {
+      font-size: 24px;
+    }
+
+    .HostelContent {
+      h2 {
+        font-size: 20px;
+      }
+
+      .ImageCard {
+        height: 350px;
+
+        .hotelName {
+          font-size: 18px;
+        }
+      }
+    }
+
+    .placesList {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .placesContent {
+    padding: 10px;
+
+    .HostelContent {
+      padding: 8px;
+
+      .ImageCard {
+        height: 300px;
+      }
+
+      .infoGrid {
+        padding: 0 8px;
+
+        .infoItem {
+          padding: 10px 12px;
+          font-size: 14px;
+
+          .starRating {
+            .star {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
 }

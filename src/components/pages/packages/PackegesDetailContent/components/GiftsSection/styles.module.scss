@@ -55,15 +55,22 @@
         margin-bottom: 12px;
       }
 
-      p {
-        color: var(--color-text-secondary);
-        font-size: 16px;
-        line-height: 1.6;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        margin: 0;
+      .description {
+        .shortDescription {
+          color: var(--color-text-secondary);
+          font-size: 16px;
+          line-height: 1.6;
+          margin: 0;
+
+          // HTML контент үчүн стилдер
+          p {
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+          }
+        }
 
         .readMore {
           display: inline-block;

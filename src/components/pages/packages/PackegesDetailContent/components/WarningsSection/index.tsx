@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import styles from './styles.module.scss';
-import { useGetWarningsQuery } from '@/redux/api/tour-details'
+import { useGetWarningsQuery } from '@/redux/api/tour-details';
 
 export const WarningsSection: React.FC = () => {
 	const { data: warnings, isLoading } = useGetWarningsQuery('Restrictions');
@@ -30,7 +30,12 @@ export const WarningsSection: React.FC = () => {
 						</div>
 						<div className={styles.warningInfo}>
 							<h3>{warning.title}</h3>
-							<p>{warning.description}</p>
+							<div
+								className={styles.description_content}
+								dangerouslySetInnerHTML={{
+									__html: warning.description
+								}}
+							/>
 						</div>
 					</div>
 				))}

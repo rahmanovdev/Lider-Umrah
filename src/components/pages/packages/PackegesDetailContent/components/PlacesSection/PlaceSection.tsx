@@ -1,105 +1,149 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './PlacesSection.module.scss';
-import Image from 'next/image';
 import { Modal } from '../shared/Modal';
+import { useGetHotelsQuery } from '@/redux/api/hotels';
+import { FaStar } from 'react-icons/fa';
 import PlaceCard from '../PlaceCard/PlaceCard';
-import { placesData } from '../../data/content';
+import { useGetPlacesQuery } from '@/redux/api/tour-details';
+import { Package } from '@/redux/api/tour-details/types';
+
+const MEDINA_HOTEL_IMAGE = '/images/medina-hotel.jpg';
+const MECCA_HOTEL_IMAGE = '/images/mecca-hotel.jpg';
+
+const StarRating = ({ count }: { count: number }) => {
+	return (
+		<div className={styles.starRating}>
+			{[...Array(count)].map((_, index) => (
+				<FaStar key={index} className={styles.star} />
+			))}
+		</div>
+	);
+};
 
 const PlacesSection = () => {
-	const [selectedPlaceId, setSelectedPlaceId] = React.useState<number | null>(
+	const [selectedPlace, setSelectedPlace] = useState<Package.Place | null>(
 		null
 	);
+	const { data: hotels, isLoading: hotelsLoading } = useGetHotelsQuery();
+	const { data: places, isLoading: placesLoading } =
+		useGetPlacesQuery('PlacesToVisit');
 
-	const selectedPlace = placesData.find(p => p.id === selectedPlaceId);
+	const medinaHotel = hotels?.find(hotel => hotel.city === 'medina');
+	const meccaHotel = hotels?.find(hotel => hotel.city === 'mecca');
+
+	if (hotelsLoading || placesLoading) {
+		return <div>Жүктөлүүдө...</div>;
+	}
+
 	return (
 		<div className={styles.placesContent}>
 			<h1>Проживание в отелях</h1>
 			<div className={styles.hotelContainer}>
-				<div className={styles.HostelContent}>
-					<h2>Проживание в Медине</h2>
-					<div className={styles.ImageCard}>
-						<Image
-							src='https://dynamic-media-cdn.tripadvisor.com/media/photo-o/04/1b/3c/df/hostel-nomad.jpg?w=1200&h=-1&s=1'
-							alt='Medina Hotel'
-							width={500}
-							height={400}
-							priority
-						/>
-						<h3 className={styles.hotelName}>Maien Taiba (или аналог)</h3>
+				{medinaHotel && (
+					<div className={styles.HostelContent}>
+						<h2>Проживание в {medinaHotel.city_display}</h2>
+						<div className={styles.ImageCard}>
+							<img
+								src={MEDINA_HOTEL_IMAGE}
+								alt={medinaHotel.name}
+								className={styles.hotelImage}
+							/>
+							<h3 className={styles.hotelName}>
+								{medinaHotel.name} (или аналог)
+							</h3>
+						</div>
+						<div className={styles.infoGrid}>
+							<div className={styles.infoItem}>
+								<span>Расстояние до мечети Пророка</span>
+								<span>{medinaHotel.distance_to_mosque}</span>
+							</div>
+							<div className={styles.infoItem}>
+								<span>Размещение</span>
+								<span>{medinaHotel.accommodation}</span>
+							</div>
+							<div className={styles.infoItem}>
+								<span>Питание</span>
+								<span>{medinaHotel.meals}</span>
+							</div>
+							<div className={styles.infoItem}>
+								<span>Количество ночей</span>
+								<span>{medinaHotel.nights}</span>
+							</div>
+							<div className={styles.infoItem}>
+								<span>Категория отеля</span>
+								<StarRating count={medinaHotel.stars} />
+							</div>
+						</div>
 					</div>
-					<div className={styles.infoGrid}>
-						<div className={styles.infoItem}>
-							<span>Расстояние до мечети Пророка</span>
-							<span>300м</span>
-						</div>
-						<div className={styles.infoItem}>
-							<span>Размещение</span>
-							<span>Четырехместное</span>
-						</div>
-						<div className={styles.infoItem}>
-							<span>Питание</span>
-							<span>Завтрак и ужин - шведский стол</span>
-						</div>
-						<div className={styles.infoItem}>
-							<span>Количество ночей</span>
-							<span>3</span>
-						</div>
-					</div>
-				</div>
+				)}
 
-				<div className={styles.HostelContent}>
-					<h2>Проживание в Мекке</h2>
-					<div className={styles.ImageCard}>
-						<Image
-							src='https://dynamic-media-cdn.tripadvisor.com/media/photo-o/04/1b/3c/df/hostel-nomad.jpg?w=1200&h=-1&s=1'
-							alt='Mecca Hotel'
-							width={500}
-							height={400}
-							priority
-						/>
-						<h3 className={styles.hotelName}>Infinity (или аналог)</h3>
+				{meccaHotel && (
+					<div className={styles.HostelContent}>
+						<h2>Проживание в {meccaHotel.city_display}</h2>
+						<div className={styles.ImageCard}>
+							<img
+								src={MECCA_HOTEL_IMAGE}
+								alt={meccaHotel.name}
+								className={styles.hotelImage}
+							/>
+							<h3 className={styles.hotelName}>
+								{meccaHotel.name} (или аналог)
+							</h3>
+						</div>
+						<div className={styles.infoGrid}>
+							<div className={styles.infoItem}>
+								<span>Расстояние до Аль-Харама</span>
+								<span>{meccaHotel.distance_to_mosque}</span>
+							</div>
+							<div className={styles.infoItem}>
+								<span>Размещение</span>
+								<span>{meccaHotel.accommodation}</span>
+							</div>
+							<div className={styles.infoItem}>
+								<span>Питание</span>
+								<span>{meccaHotel.meals}</span>
+							</div>
+							<div className={styles.infoItem}>
+								<span>Количество ночей</span>
+								<span>{meccaHotel.nights}</span>
+							</div>
+							<div className={styles.infoItem}>
+								<span>Категория отеля</span>
+								<StarRating count={meccaHotel.stars} />
+							</div>
+						</div>
 					</div>
-					<div className={styles.infoGrid}>
-						<div className={styles.infoItem}>
-							<span>Расстояние до Аль-Харама</span>
-							<span>700 метров</span>
-						</div>
-						<div className={styles.infoItem}>
-							<span>Размещение</span>
-							<span>Четырехместное</span>
-						</div>
-						<div className={styles.infoItem}>
-							<span>Питание</span>
-							<span>Завтрак и ужин (шведский стол)</span>
-						</div>
-						<div className={styles.infoItem}>
-							<span>Количество ночей</span>
-							<span>10</span>
-						</div>
-					</div>
-				</div>
+				)}
 			</div>
-			{selectedPlace && (
-				<Modal
-					title={selectedPlace.title}
-					content={selectedPlace.fullDescription}
-					onClose={() => setSelectedPlaceId(null)}
-					isOpen={Boolean(selectedPlaceId)}
-				/>
-			)}
+
 			<div className={styles.others_places}>
 				<h1>Места для посещения</h1>
 				<div className={styles.placesList}>
-					{placesData.map(place => (
+					{places?.map(place => (
 						<PlaceCard
-							onOpen={() => setSelectedPlaceId(place.id)}
 							key={place.id}
 							place={place}
+							onOpen={() => setSelectedPlace(place)}
 						/>
 					))}
 				</div>
 			</div>
+
+			{selectedPlace && (
+				<Modal
+					isOpen={!!selectedPlace}
+					onClose={() => setSelectedPlace(null)}
+					title={selectedPlace.title}
+					content={
+						<div
+							dangerouslySetInnerHTML={{
+								__html: selectedPlace.description
+							}}
+						/>
+					}
+				/>
+			)}
 		</div>
 	);
 };

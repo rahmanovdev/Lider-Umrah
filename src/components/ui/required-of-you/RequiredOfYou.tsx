@@ -23,7 +23,7 @@ const RequiredOfYou: React.FC = () => {
 						))}
 					</div>
 				</div>
-				<figure className={styles.image}>
+				<figure data-figure className={styles.image}>
 					<Image
 						width={408}
 						height={500}

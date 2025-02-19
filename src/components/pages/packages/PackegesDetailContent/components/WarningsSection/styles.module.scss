@@ -19,11 +19,11 @@
   .warningItem {
     display: flex;
     gap: 28px;
-    background: white;
+    // background: white;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.1);
-    border: 1px solid rgba(220, 38, 38, 0.1);
+    box-shadow: 0 6px 8px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     padding: 26px;
 
     .warningImageWrapper {
@@ -52,10 +52,11 @@
         margin-bottom: 12px;
       }
 
-      p {
-        font-size: 16px;
-        line-height: 1.6;
-        color: #4b5563;
+      .description_content {
+        p {
+          margin: 0.5rem 0;
+          line-height: 1.5;
+        }
       }
     }
   }

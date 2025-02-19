@@ -1,7 +1,8 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import scss from './HeadPackegeDet.module.scss';
 import Image from 'next/image';
+import { Modal } from '../components/shared/Modal'
 
 interface HeadPackegeDetProps {
 	tourData: TOURS.ITourPackages;
@@ -13,6 +14,8 @@ const Type = {
 };
 
 const HeadPackegeDet: React.FC<HeadPackegeDetProps> = ({ tourData }) => {
+	const [isModalOpen, setIsModalOpen] = useState(false);
+
 	const formatDate = (dateString: string) => {
 		const date = new Date(dateString);
 		const months = [
@@ -41,6 +44,18 @@ const HeadPackegeDet: React.FC<HeadPackegeDetProps> = ({ tourData }) => {
 
 	const packageType =
 		tourData.category.name.toLowerCase() === 'комфорт' ? 'comfort' : 'ekonom';
+
+	const truncateBio = (bio: string, maxLength: number = 200) => {
+		const temp = document.createElement('div');
+		temp.innerHTML = bio;
+		const plainText = temp.textContent || temp.innerText;
+
+		if (plainText.length <= maxLength) return bio;
+
+		const truncated = bio.slice(0, maxLength);
+		const lastP = truncated.lastIndexOf('</p>');
+		return lastP !== -1 ? bio.slice(0, lastP + 4) : truncated + '...';
+	};
 
 	return (
 		<div className={scss.HeadPackegeDet}>
@@ -71,9 +86,11 @@ const HeadPackegeDet: React.FC<HeadPackegeDetProps> = ({ tourData }) => {
 							</div>
 							<hr />
 							<div className={scss.text_card}>
-								{/* Тибин көрсөтөбүз */}
 								<h2>{Type[packageType]} пакет</h2>
-								<p>{tourData.description}</p>
+								<div
+									className={scss.description}
+									dangerouslySetInnerHTML={{ __html: tourData.description }}
+								/>
 							</div>
 						</div>
 
@@ -93,7 +110,20 @@ const HeadPackegeDet: React.FC<HeadPackegeDetProps> = ({ tourData }) => {
 									</div>
 									<div className={scss.leader_info}>
 										<h4>{tourData.ajy.name}</h4>
-										<p>{tourData.ajy.bio}</p>
+										<div className={scss.bio_container}>
+											<div
+												className={scss.bio_content}
+												dangerouslySetInnerHTML={{
+													__html: truncateBio(tourData.ajy.bio)
+												}}
+											/>
+											<button
+												className={scss.readMore}
+												onClick={() => setIsModalOpen(true)}
+											>
+												толугураак
+											</button>
+										</div>
 										<div className={scss.card_info}>
 											<div className={scss.info_line}>
 												<h4>Колличество:</h4>
@@ -121,6 +151,13 @@ const HeadPackegeDet: React.FC<HeadPackegeDetProps> = ({ tourData }) => {
 					</div>
 				</div>
 			</div>
+
+			<Modal
+				isOpen={isModalOpen}
+				onClose={() => setIsModalOpen(false)}
+				title={tourData.ajy.name}
+				content={tourData.ajy.bio}
+			/>
 		</div>
 	);
 };

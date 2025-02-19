@@ -45,8 +45,8 @@ const sections: Section[] = [
 	},
 	{
 		id: 3,
-		title: 'Мы рекомендуем!',
-		type: 'recommendations',
+		title: 'От вас требуется!',
+		type: 'required',
 		icon: <MdThumbUp className={styles.icon} />
 	},
 	{
@@ -84,7 +84,7 @@ const AboutProgramDet = ({ tourData }: AboutProgramDetProps) => {
 					prevIndex === sections.length - 1 ? 0 : prevIndex + 1
 				);
 			}
-		}, 5000);
+		}, 50000);
 	};
 
 	useEffect(() => {
@@ -129,18 +129,7 @@ const AboutProgramDet = ({ tourData }: AboutProgramDetProps) => {
 					</div>
 				);
 
-			// case 'requirements':
-			// 	return (
-			// 		<div
-			// 			className={styles.contentCard}
-			// 			onMouseEnter={handleMouseEnter}
-			// 			onMouseLeave={handleMouseLeave}
-			// 		>
-			// 			<RequiredOfYou />
-			// 		</div>
-			// 	);
-
-			case 'recommendations':
+			case 'required':
 				return (
 					<div
 						className={styles.contentCard}

@@ -41,6 +41,13 @@ export namespace Package {
 		description: string;
 		images: string[];
 	}
+  interface Place {
+		id: number;
+		title: string;
+		description: string;
+		shortDescription: string;
+		image: string;
+	}
 
 	interface Gift {
 		id: number;
@@ -50,6 +57,7 @@ export namespace Package {
 		image: string;
 	}
 
+  type GetPlacesResponse = Place[];
 	type GetPackageDetailsResponse = PackageDetail[];
 	type GetFoodInfoResponse = FoodInfo[];
 	type GetGiftsResponse = Gift[];

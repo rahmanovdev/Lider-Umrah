@@ -10,6 +10,7 @@ namespace TOURS {
 		id: number;
 		name: string;
 		category: string;
+		stars: number;
 	}
 
 	interface ITourDate {

@@ -84,7 +84,7 @@ const AboutProgramDet = ({ tourData }: AboutProgramDetProps) => {
 					prevIndex === sections.length - 1 ? 0 : prevIndex + 1
 				);
 			}
-		}, 50000);
+		}, 5000);
 	};
 
 	useEffect(() => {

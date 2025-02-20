@@ -1,41 +1,25 @@
 :root {
   --angel-primary-gradient: 145deg;
-
   --color-primary: #12abcd;
   --color-secondary: #2c67f2;
   --color-primary-gradient: var(--color-primary), var(--color-secondary);
   --default-primary-gradient: linear-gradient(var(--angel-primary-gradient), var(--color-primary-gradient));
-
-
   --color-bg: #ebf9fa;
-
-  /* Основной цвет */
   --color-text: #333;
-  /* Цвет текста */
   --color-background: rgba(0, 0, 0, 0.111);
-  /* Цвет фона */
   --color-border: #ccc;
-  /* Цвет границ */
-
-  /* Шрифты */
   --font-family: 'Inter', Arial, Helvetica, sans-serif;
   --font-size-base: 16px;
-  /* Базовый размер шрифта */
   --line-height: 1.6;
-  /* Межстрочное расстояние */
 
-  /* Отступы */
-  --container-max-width: 1240px;
-  --container-padding: 20px;
+  --container-max-width: 1280px;
+  --container-padding: 0 20px;
 }
 
 link {
   cursor: pointer;
 }
 
-/* ==========================
- Глобальные стили
-========================== */
 * {
   margin: 0;
   padding: 0;

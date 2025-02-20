@@ -7,9 +7,7 @@ import { useState } from 'react';
 
 const PackegesContent = () => {
 	const { data: tours = [] } = useGetToursQuery();
-	console.log(tours , 'tours');
 	
-
 	const [currentFilter, setCurrentFilter] = useState('all');
 
 	const getFilteredTours = () => {

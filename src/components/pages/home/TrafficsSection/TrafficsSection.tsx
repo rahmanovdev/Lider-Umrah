@@ -15,9 +15,7 @@ const TrafficsSection: React.FC<
 				<div className={scss.content}>
 					<div className={scss.cards}>
 						{tours.map((tour, index) => {
-							// Ортоңку картаны comfort кылабыз
 							const cardType = index === 1 ? 'comfort' : 'ekonom';
-							// Акыркы 3 турду props катары берип жатабыз
 							const currentTour = tours[index];
 
 							return (

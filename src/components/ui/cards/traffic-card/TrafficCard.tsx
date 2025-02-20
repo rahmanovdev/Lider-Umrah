@@ -1,9 +1,9 @@
 'use client';
-import { useGetToursQuery } from '@/redux/api/tour';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import scss from './TrafficCard.module.scss';
+import { FaStar } from 'react-icons/fa'
 
 type TProps = {
 	type: 'ekonom' | 'comfort';
@@ -30,7 +30,7 @@ const TrafficCard: React.FC<TProps> = ({ type, tour }) => {
 			'сентября',
 			'октября',
 			'ноября',
-			'декабря'
+			'декабря',
 		];
 		return `${date.getDate()} ${months[date.getMonth()]}`;
 	};
@@ -73,11 +73,26 @@ const TrafficCard: React.FC<TProps> = ({ type, tour }) => {
 					<h4>Категория:</h4>
 					<h5>{tour.category.name}</h5>
 				</div>
+				<hr className={scss.divider} />
+				<div className={scss.line}>
+					<span>Категория отеля</span>
+					<StarRating count={4} />
+				</div>
 			</div>
 
 			<div className={scss.link}>
 				<Link href={`/packages/${tour.id}`}>Подробнее</Link>
 			</div>
+		</div>
+	);
+};
+
+const StarRating = ({ count }: { count: number }) => {
+	return (
+		<div className={scss.starRating}>
+			{[...Array(count)].map((_, index) => (
+				<FaStar key={index} className={scss.star} />
+			))}
 		</div>
 	);
 };

@@ -60,15 +60,16 @@
 			height: 100%;
 			object-fit: cover;
 			z-index: -1;
-
 		}
 
 		&.fr-2 {
-			max-width: 790px;
+			max-width: 600px;
+			min-width: 600px;
 		}
 
 		&.fr-1 {
-			max-width: 375px;
+			max-width: 300px;
+			min-width: 300px;
 		}
 	}
 }

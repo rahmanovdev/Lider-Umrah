@@ -3,11 +3,23 @@
 	border-radius: 25px;
 	box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.15);
 	padding: 2rem 1.2rem;
-	transition: all .25s;
+	transition: all 0.25s;
 	background: #f0fbfc;
 
 	&.comfort {
 		transform: scale(1.04);
+	}
+
+	.starRating {
+		display: inline-flex;
+		gap: 4px;
+		align-items: center;
+		margin-left: auto;
+
+		.star {
+			color: #ffd700;
+			font-size: 18px;
+		}
 	}
 
 	h2 {
